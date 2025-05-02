@@ -3,12 +3,18 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy.ext.asyncio import async_sessionmaker
 from dotenv import load_dotenv
 import os
+from urllib.parse import quote_plus
 
 load_dotenv()
 
 MYSQL_PORT = os.getenv('MYSQL_PORT', '3306')
 
-DB_URL = f"mysql+aiomysql://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}@{os.getenv('MYSQL_HOST')}/{os.getenv('MYSQL_DB')}"
+DB_URL = (
+    f"mysql+aiomysql://{quote_plus(os.getenv('MYSQL_USER'))}:"
+    f"{quote_plus(os.getenv('MYSQL_PASSWORD'))}@"
+    f"{os.getenv('MYSQL_HOST')}/"
+    f"{os.getenv('MYSQL_DB')}"
+)
 Base = declarative_base()
 
 engine = create_async_engine(

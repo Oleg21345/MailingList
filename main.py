@@ -5,7 +5,7 @@ from bot.handlers.start_handler import main_context,bot
 from datetime import datetime
 
 async def main():
-    await drop_tables()
+    # await drop_tables()
 
     await create_tables()
     await main_context()

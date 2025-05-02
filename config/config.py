@@ -2,7 +2,7 @@ from datetime import datetime
 from pytz import timezone, UTC
 
 
-BOT_TOKEN = 'BOT TOKEN'
+BOT_TOKEN = '7803036489:AAFcRaV9uDw57KQ8AnuWEUSYnmVXoNqZSgE'
 
 
 kyiv_tz = timezone("Europe/Kyiv")
